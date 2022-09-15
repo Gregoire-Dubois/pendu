@@ -47,22 +47,19 @@ public class app_pendu {
         }
         System.out.println(starsword);
 
-        //récupérer la saisie utilisateur
+        // récupérer la saisie utilisateur
 
         Scanner scannerLetter = new Scanner(System.in);
         System.out.println("Saisissez une lettre : ");
         char charUserInput = scannerLetter.next().charAt(0);
         System.out.println("Vous avez saisi : " + charUserInput);
-        System.out.println(charUserInput); 
+        System.out.println(charUserInput);
 
         // Créer le démascage des caractères ex : **e***
         ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>();
 
-
-        // vérifier si la saisie utilsateur comprend une correspondace ou plusieurs avec le mot magique
-
-
-
+        // vérifier si la saisie utilsateur comprend une correspondace ou plusieurs avec
+        // le mot magique
 
     }
 
@@ -79,5 +76,5 @@ public class app_pendu {
  * System.out.println("Le mot magique est ------------->" + starsword);
  * return starsword;
  * }
- 
+ * 
  */
