@@ -61,16 +61,7 @@ public class app_pendu {
 
         // vérifier si la saisie utilsateur comprend une correspondace ou plusieurs avec le mot magique
 
-        for(int i = 0; i < arrayWord.size(); i++){
-            if(charUserInput == arrayWord.get(i)){
-                arrayUnStarsWord.set(arrayUnStarsWord.get(i), charUserInput);
-            }else{
-                arrayUnStarsWord.set(arrayUnStarsWord.get(i), '*');
-            }
- 
 
-
-        }
 
 
     }
