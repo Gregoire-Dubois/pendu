@@ -61,14 +61,19 @@ public class app_pendu {
         // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs
         // avec
         // le mot magique
-
+        ArrayList<Character> unMaskWord = new ArrayList<Character>();
         for (int i = 0; i < arrayWord.size(); i++) {
             if (charUserInput == arrayWord.get(i)) {
-                System.out.println("OK");
+                unMaskWord.add(charUserInput);
+
+            }else{
+                unMaskWord.add('*');
+
             }
-            ;
 
         }
+        System.out.println(unMaskWord);
+
 
     }
 
