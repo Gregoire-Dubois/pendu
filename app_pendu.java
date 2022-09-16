@@ -14,6 +14,8 @@ public class app_pendu {
         Random chf = new Random();
         int randomNumber = chf.nextInt(maxValueRandom) + minValueRandom;
 
+
+
         // Todo ici prévoir la boucle et le nombre de chances
 
         int chances = 7;
@@ -40,7 +42,9 @@ public class app_pendu {
             }
 
             // masquer le mot magique sous des étoiles
+
             ArrayList<Character> arrayStarsWord = new ArrayList<Character>();
+
             char[] chStars = new char[theWord.length()];
             for (int i = 0; i < theWord.length(); i++) {
                 chStars[i] = '*';
@@ -64,8 +68,11 @@ public class app_pendu {
             System.out.println(charUserInput);
 
             // Créer le démascage des caractères ex : **e***
-
+            // le ArrayList doit contenir autant d'indexe que le ArrayList qui contient les étoiles
             ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>();
+            for(int i= 0;i<arrayStarsWord.size(); i++){
+                arrayUnStarsWord.add('*');
+            }
 
             // Todo vérifier si la saisie utilsateur comprend une correspondance ou
             // plusieurs
@@ -81,7 +88,7 @@ public class app_pendu {
 
             }
             System.out.println(arrayUnStarsWord);
-            
+
 
         }
 
