@@ -8,7 +8,6 @@ public class app_pendu {
 
         String dicoWords[] = { "python", "java", "php", "pascal", "javascript", "cobol" };
 
-
         // générer un nombre aléatoire
         int minValueRandom = 0;
         int maxValueRandom = dicoWords.length;
@@ -59,11 +58,19 @@ public class app_pendu {
         // Créer le démascage des caractères ex : **e***
         ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>();
 
-        // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs avec
+        // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs
+        // avec
         // le mot magique
 
-    }
+        for (int i = 0; i < arrayWord.size(); i++) {
+            if (charUserInput == arrayWord.get(i)) {
+                System.out.println("OK");
+            }
+            ;
 
+        }
+
+    }
 
 }
 
