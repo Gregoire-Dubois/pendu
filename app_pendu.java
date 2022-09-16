@@ -81,6 +81,7 @@ public class app_pendu {
 
             }
             System.out.println(arrayUnStarsWord);
+            
 
         }
 
