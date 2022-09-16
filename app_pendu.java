@@ -14,66 +14,75 @@ public class app_pendu {
         Random chf = new Random();
         int randomNumber = chf.nextInt(maxValueRandom) + minValueRandom;
 
-        // Afficher le mot mystère
-        System.out.println(dicoWords[randomNumber]);
-        String theWord;
-        theWord = dicoWords[randomNumber];
+        // Todo ici prévoir la boucle et le nombre de chances
 
-        // System.out.print(theWord.getClass());
+        int chances = 7;
+        while (chances > 0) {
+            chances--;
 
-        // convertir le mot qui est en STR en arrayList
+            // Todo le nombre de chances
 
-        char[] ch = new char[theWord.length()];
-        ArrayList<Character> arrayWord = new ArrayList<Character>();
-        for (int i = 0; i < theWord.length(); i++) {
-            ch[i] = theWord.charAt(i);
+            // Afficher le mot mystère
+            System.out.println(dicoWords[randomNumber]);
+            String theWord;
+            theWord = dicoWords[randomNumber];
 
-            arrayWord.add(ch[i]);
-        }
+            // System.out.print(theWord.getClass());
 
-        // masquer le mot magique sous des étoiles
-        ArrayList<Character> arrayStarsWord = new ArrayList<Character>();
-        char[] chStars = new char[theWord.length()];
-        for (int i = 0; i < theWord.length(); i++) {
-            chStars[i] = '*';
-            arrayStarsWord.add(chStars[i]);
-        }
-        // afficher le mot magique sous des étoiles au format String
-        String starsword = "";
+            // convertir le mot qui est en STR en arrayList
 
-        for (Character letter : arrayStarsWord) {
-            starsword += letter;
+            char[] ch = new char[theWord.length()];
+            ArrayList<Character> arrayWord = new ArrayList<Character>();
+            for (int i = 0; i < theWord.length(); i++) {
+                ch[i] = theWord.charAt(i);
 
-        }
-        System.out.println(starsword);
-
-        // récupérer la saisie utilisateur
-
-        Scanner scannerLetter = new Scanner(System.in);
-        System.out.println("Saisissez une lettre : ");
-        char charUserInput = scannerLetter.next().charAt(0);
-        System.out.println("Vous avez saisi : " + charUserInput);
-        System.out.println(charUserInput);
-
-        // Créer le démascage des caractères ex : **e***
-        ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>();
-
-        // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs
-        // avec
-        // le mot magique
-        ArrayList<Character> unMaskWord = new ArrayList<Character>();
-        for (int i = 0; i < arrayWord.size(); i++) {
-            if (charUserInput == arrayWord.get(i)) {
-                unMaskWord.add(charUserInput);
-
-            }else{
-                unMaskWord.add('*');
-
+                arrayWord.add(ch[i]);
             }
 
-        }
-        System.out.println(unMaskWord);
+            // masquer le mot magique sous des étoiles
+            ArrayList<Character> arrayStarsWord = new ArrayList<Character>();
+            char[] chStars = new char[theWord.length()];
+            for (int i = 0; i < theWord.length(); i++) {
+                chStars[i] = '*';
+                arrayStarsWord.add(chStars[i]);
+            }
+            // afficher le mot magique sous des étoiles au format String
+            String starsword = "";
 
+            for (Character letter : arrayStarsWord) {
+                starsword += letter;
+
+            }
+            System.out.println(starsword);
+
+            // récupérer la saisie utilisateur
+
+            Scanner scannerLetter = new Scanner(System.in);
+            System.out.println("Saisissez une lettre : ");
+            char charUserInput = scannerLetter.next().charAt(0);
+            System.out.println("Vous avez saisi : " + charUserInput);
+            System.out.println(charUserInput);
+
+            // Créer le démascage des caractères ex : **e***
+
+            ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>();
+
+            // Todo vérifier si la saisie utilsateur comprend une correspondance ou
+            // plusieurs
+            // avec
+            // le mot magique
+            for (int i = 0; i < arrayWord.size(); i++) {
+                if (charUserInput == arrayWord.get(i)) {
+                    arrayUnStarsWord.set(i, charUserInput);
+
+                } else {
+                    arrayUnStarsWord.set(i, '*');
+                }
+
+            }
+            System.out.println(arrayUnStarsWord);
+
+        }
 
     }
 
