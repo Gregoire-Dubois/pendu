@@ -19,10 +19,6 @@ public class app_pendu {
         ArrayList<Character> arrayStarsWord = new ArrayList<Character>(); // Array destiné à recevoir les * pour couvrir
                                                                           // le mot
 
-        // while (chances > 0) {
-
-        // Todo décompter le nombre de chances
-
         // Afficher le mot mystère
         System.out.println(dicoWords[randomNumber]);
         String theWord;
@@ -56,9 +52,8 @@ public class app_pendu {
         }
         System.out.println("Découvre le mot mystère caché sous les étoiles : " + starsword);
 
-        ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>(theWord.length());
-
-
+        // ArrayList<Character> arrayUnStarsWord = new
+        // ArrayList<Character>(theWord.length());
 
         while (chances > 0) {
 
@@ -73,16 +68,32 @@ public class app_pendu {
             // le ArrayList doit contenir autant d'indexe que le ArrayList qui contient les
             // étoiles
 
-            //ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>(theWord.length());
+            // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs
+            // avec le mot magique
 
-            //vérifier si la saisie utilsateur comprend une correspondance ou plusieurs avec le mot magique
+            int goodLetter = 0;
 
             for (int i = 0; i < arrayWord.size(); i++) {
                 if (charUserInput == arrayWord.get(i)) {
                     arrayStarsWord.set(i, charUserInput);
-                } 
+                    goodLetter++;
+
+                }
 
             }
+
+            if (goodLetter == 0) {
+                chances--;
+            }
+
+            // si le mot est trouvé intégralement avant la fin des chances -> fin de la
+            // boucle
+            if (arrayStarsWord.equals(arrayWord)) {
+                System.out.println("Félicitation");
+                break;
+
+            }
+
             System.out.println("Vos découvertes " + arrayStarsWord);
             System.out.println("Il vous reste : " + chances);
         }
@@ -90,8 +101,6 @@ public class app_pendu {
 }
 
 /*
- * convertire le arrayStarsWord en String et l'afficher en sortie  
- * Prévoir une sortie de boucle si l'utilisateur trouve toutes les lettres avant la fin de ses chances
- * ajouter un mécanisme de décompte des chances
+ * convertir le arrayStarsWord en String et l'afficher en sortie
  * créer une boucle pour demander à l'utilisateur s'il veut recommancer
  */
