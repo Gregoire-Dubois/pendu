@@ -6,101 +6,106 @@ public class app_pendu {
 
     public static void main(String[] args) {
 
-        String dicoWords[] = { "python", "java", "php", "pascal", "javascript", "cobol" };
+        char choice = 'y';
 
-        // générer un nombre aléatoire
-        int minValueRandom = 0;
-        int maxValueRandom = dicoWords.length;
-        Random chf = new Random();
-        int randomNumber = chf.nextInt(maxValueRandom) + minValueRandom;
+        while (choice == 'y') {
 
-        int chances = 7;
+            String dicoWords[] = { "python", "java", "php", "pascal", "javascript", "cobol" };
 
-        ArrayList<Character> arrayStarsWord = new ArrayList<Character>(); // Array destiné à recevoir les * pour couvrir
-                                                                          // le mot
+            // générer un nombre aléatoire
+            int minValueRandom = 0;
+            int maxValueRandom = dicoWords.length;
+            Random chf = new Random();
+            int randomNumber = chf.nextInt(maxValueRandom) + minValueRandom;
 
-        // Afficher le mot mystère
-        System.out.println(dicoWords[randomNumber]);
-        String theWord;
-        theWord = dicoWords[randomNumber];
+            int chances = 7;
 
-        // System.out.print(theWord.getClass());
+            ArrayList<Character> arrayStarsWord = new ArrayList<Character>(); // Array destiné à recevoir les * pour
+                                                                              // couvrir
+                                                                              // le mot
 
-        // convertir le mot qui est en STR en arrayList
+            // Afficher le mot mystère
+            System.out.println(dicoWords[randomNumber]);
+            String theWord;
+            theWord = dicoWords[randomNumber];
 
-        char[] ch = new char[theWord.length()];
+            // convertir le mot qui est en STR en arrayList
 
-        ArrayList<Character> arrayWord = new ArrayList<Character>(); // passer le mot de STR à Array
-        for (int i = 0; i < theWord.length(); i++) {
-            ch[i] = theWord.charAt(i);
-            arrayWord.add(ch[i]);
-        }
+            char[] ch = new char[theWord.length()];
 
-        // masquer le mot magique sous des étoiles
+            ArrayList<Character> arrayWord = new ArrayList<Character>(); // passer le mot de STR à Array
+            for (int i = 0; i < theWord.length(); i++) {
+                ch[i] = theWord.charAt(i);
+                arrayWord.add(ch[i]);
+            }
 
-        char[] chStars = new char[theWord.length()];
-        for (int i = 0; i < theWord.length(); i++) {
-            chStars[i] = '*';
-            arrayStarsWord.add(chStars[i]);
-        }
-        // afficher le mot magique sous des étoiles au format String
-        String starsword = "";
+            // masquer le mot magique sous des étoiles
 
-        for (Character letter : arrayStarsWord) {
-            starsword += letter;
+            char[] chStars = new char[theWord.length()];
+            for (int i = 0; i < theWord.length(); i++) {
+                chStars[i] = '*';
+                arrayStarsWord.add(chStars[i]);
+            }
+            // afficher le mot magique sous des étoiles au format String
+            String starsword = "";
 
-        }
-        System.out.println("Découvre le mot mystère caché sous les étoiles : " + starsword);
+            for (Character letter : arrayStarsWord) {
+                starsword += letter;
 
-        // ArrayList<Character> arrayUnStarsWord = new
-        // ArrayList<Character>(theWord.length());
+            }
+            System.out.println("Découvre le mot mystère caché sous les étoiles : " + starsword);
 
-        while (chances > 0) {
+            while (chances > 0) {
 
-            // récupérer la saisie utilisateur
+                // récupérer la saisie utilisateur
 
-            Scanner scannerLetter = new Scanner(System.in);
-            System.out.println("Saisissez une lettre : ");
+                Scanner scannerLetter = new Scanner(System.in);
+                System.out.println("Saisissez une lettre : ");
 
-            char charUserInput = scannerLetter.next().charAt(0);
+                char charUserInput = scannerLetter.next().charAt(0);
 
-            // Créer le démascage des caractères ex : **e***
-            // le ArrayList doit contenir autant d'indexe que le ArrayList qui contient les
-            // étoiles
+                // Créer le démascage des caractères ex : **e***
+                // le ArrayList doit contenir autant d'indexe que le ArrayList qui contient les
+                // étoiles
 
-            // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs
-            // avec le mot magique
+                // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs
+                // avec le mot magique
 
-            int goodLetter = 0;
+                int goodLetter = 0;
 
-            for (int i = 0; i < arrayWord.size(); i++) {
-                if (charUserInput == arrayWord.get(i)) {
-                    arrayStarsWord.set(i, charUserInput);
-                    goodLetter++;
-
+                for (int i = 0; i < arrayWord.size(); i++) {
+                    if (charUserInput == arrayWord.get(i)) {
+                        arrayStarsWord.set(i, charUserInput);
+                        goodLetter++;
+                    }
                 }
 
+                if (goodLetter == 0) {
+                    chances--;
+                }
+
+                // si le mot est trouvé intégralement avant la fin des chances -> fin de la
+                // boucle
+                if (arrayStarsWord.equals(arrayWord)) {
+                    System.out.println("Félicitation");
+                    break;
+                }
+
+                System.out.println("Vos découvertes " + arrayStarsWord);
+                System.out.println("Il vous reste : " + chances);
             }
 
-            if (goodLetter == 0) {
-                chances--;
+            System.out.println("Voulez vous recommencer ? Tapez 'y' pour continuer");
+            Scanner play = new Scanner(System.in);
+            choice = play.next().charAt(0);
+
+            if(choice != 'y'){
+                System.out.println("Fin du programme");
             }
-
-            // si le mot est trouvé intégralement avant la fin des chances -> fin de la
-            // boucle
-            if (arrayStarsWord.equals(arrayWord)) {
-                System.out.println("Félicitation");
-                break;
-
-            }
-
-            System.out.println("Vos découvertes " + arrayStarsWord);
-            System.out.println("Il vous reste : " + chances);
         }
     }
 }
 
 /*
  * convertir le arrayStarsWord en String et l'afficher en sortie
- * créer une boucle pour demander à l'utilisateur s'il veut recommancer
  */
