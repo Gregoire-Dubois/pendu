@@ -65,11 +65,9 @@ public class app_pendu {
                 char charUserInput = scannerLetter.next().charAt(0);
 
                 // Créer le démascage des caractères ex : **e***
-                // le ArrayList doit contenir autant d'indexe que le ArrayList qui contient les
-                // étoiles
+                // le ArrayList doit contenir autant d'indexe que le ArrayList qui contient les étoiles
 
-                // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs
-                // avec le mot magique
+                // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs avec le mot magique
 
                 int goodLetter = 0;
 
@@ -84,15 +82,19 @@ public class app_pendu {
                     chances--;
                 }
 
+  
+
+                String discoveriesLetters = arrayStarsWord.toString().replaceAll(",", "");
+                System.out.println("Vos découvertes " + discoveriesLetters);
+                System.out.println("Il vous reste : " + chances);
+
                 // si le mot est trouvé intégralement avant la fin des chances -> fin de la
                 // boucle
                 if (arrayStarsWord.equals(arrayWord)) {
-                    System.out.println("Félicitation");
+                    System.out.println("Félicitation le mot mystère était " + discoveriesLetters );
                     break;
                 }
 
-                System.out.println("Vos découvertes " + arrayStarsWord);
-                System.out.println("Il vous reste : " + chances);
             }
 
             System.out.println("Voulez vous recommencer ? Tapez 'y' pour continuer");
@@ -106,6 +108,3 @@ public class app_pendu {
     }
 }
 
-/*
- * convertir le arrayStarsWord en String et l'afficher en sortie
- */
