@@ -1,110 +1,21 @@
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
-
 public class app_pendu {
 
     public static void main(String[] args) {
-
-        char choice = 'y';
-
-        while (choice == 'y') {
-
-            String dicoWords[] = { "python", "java", "php", "pascal", "javascript", "cobol" };
-
-            // générer un nombre aléatoire
-            int minValueRandom = 0;
-            int maxValueRandom = dicoWords.length;
-            Random chf = new Random();
-            int randomNumber = chf.nextInt(maxValueRandom) + minValueRandom;
-
-            int chances = 7;
-
-            ArrayList<Character> arrayStarsWord = new ArrayList<Character>(); // Array destiné à recevoir les * pour
-                                                                              // couvrir
-                                                                              // le mot
-
-            // Afficher le mot mystère
-            System.out.println(dicoWords[randomNumber]);
-            String theWord;
-            theWord = dicoWords[randomNumber];
-
-            // convertir le mot qui est en STR en arrayList
-
-            char[] ch = new char[theWord.length()];
-
-            ArrayList<Character> arrayWord = new ArrayList<Character>(); // passer le mot de STR à Array
-            for (int i = 0; i < theWord.length(); i++) {
-                ch[i] = theWord.charAt(i);
-                arrayWord.add(ch[i]);
-            }
-
-            // masquer le mot magique sous des étoiles
-
-            char[] chStars = new char[theWord.length()];
-            for (int i = 0; i < theWord.length(); i++) {
-                chStars[i] = '*';
-                arrayStarsWord.add(chStars[i]);
-            }
-            // afficher le mot magique sous des étoiles au format String
-            String starsword = "";
-
-            for (Character letter : arrayStarsWord) {
-                starsword += letter;
-
-            }
-            System.out.println("Découvre le mot mystère caché sous les étoiles : " + starsword);
-
-            while (chances > 0) {
-
-                // récupérer la saisie utilisateur
-
-                Scanner scannerLetter = new Scanner(System.in);
-                System.out.println("Saisissez une lettre : ");
-
-                char charUserInput = scannerLetter.next().charAt(0);
-
-                // Créer le démascage des caractères ex : **e***
-                // le ArrayList doit contenir autant d'indexe que le ArrayList qui contient les étoiles
-
-                // vérifier si la saisie utilsateur comprend une correspondance ou plusieurs avec le mot magique
-
-                int goodLetter = 0;
-
-                for (int i = 0; i < arrayWord.size(); i++) {
-                    if (charUserInput == arrayWord.get(i)) {
-                        arrayStarsWord.set(i, charUserInput);
-                        goodLetter++;
-                    }
-                }
-
-                if (goodLetter == 0) {
-                    chances--;
-                }
-
-  
-
-                String discoveriesLetters = arrayStarsWord.toString().replaceAll(",", "");
-                System.out.println("Vos découvertes " + discoveriesLetters);
-                System.out.println("Il vous reste : " + chances);
-
-                // si le mot est trouvé intégralement avant la fin des chances -> fin de la
-                // boucle
-                if (arrayStarsWord.equals(arrayWord)) {
-                    System.out.println("Félicitation le mot mystère était " + discoveriesLetters );
-                    break;
-                }
-
-            }
-
-            System.out.println("Voulez vous recommencer ? Tapez 'y' pour continuer");
-            Scanner play = new Scanner(System.in);
-            choice = play.next().charAt(0);
-
-            if(choice != 'y'){
-                System.out.println("Fin du programme");
-            }
-        }
+        WordGenerator test = new WordGenerator();
+        WordMystificator wm = new WordMystificator();
+        Verificator x = new Verificator();
     }
 }
 
+/*
+ * générer aleatoirement une mot V
+ * convertir ce mot en arrayList V
+ * convertir en string ce mot sous des étoiles V
+ * afficher les étoiles du mot converti V
+ * verifier la saisie utilisateur 
+ * boucler tant que l'utilisateur a des chances
+ * si toutes les lettres sont trouvées alors arreter la boucle de saisie
+ * si toutes les changes sont utilisée alors arreter la boucle de saisie
+ * quand la boucle de saisie est terminée demander à l'utilisateur s'il veut recommancer
+ * 
+ */
