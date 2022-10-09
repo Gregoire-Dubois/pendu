@@ -4,8 +4,6 @@ public class WordMystificator {
 
     public WordMystificator() {
 
-        // System.out.println("A coté il y a : "+WordGenerator.theWord);
-        // System.out.println(WordGenerator.theWord.length());
         starsMaker();
     }
 
