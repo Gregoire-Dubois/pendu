@@ -1,21 +1,13 @@
-public class app_pendu {
+public class App_pendu {
 
     public static void main(String[] args) {
-        WordGenerator test = new WordGenerator();
-        WordMystificator wm = new WordMystificator();
-        Verificator x = new Verificator();
+
+        Pendu jeu = new Pendu();
+        System.out.println(jeu.wordGenerator());
+//        jeu.wordGenerator();
+        System.out.println("Le mot Mystère est : " + jeu.anonymousWord());
+        System.out.println(jeu.userInput());    	
     }
 }
 
-/*
- * générer aleatoirement une mot V
- * convertir ce mot en arrayList V
- * convertir en string ce mot sous des étoiles V
- * afficher les étoiles du mot converti V
- * verifier la saisie utilisateur 
- * boucler tant que l'utilisateur a des chances
- * si toutes les lettres sont trouvées alors arreter la boucle de saisie
- * si toutes les changes sont utilisée alors arreter la boucle de saisie
- * quand la boucle de saisie est terminée demander à l'utilisateur s'il veut recommancer
- * 
- */
+
