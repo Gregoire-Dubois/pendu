@@ -8,7 +8,15 @@ public class Pendu
     private String dictionnaryWords[] = {"java", "Python", "javascript", "cobol", "pearl", "c++","crêpes", "kouign amann"};
     private static String theWord;
 
-    private static String attemptlEtter;
+    private static char attemptletter;
+
+    public static ArrayList <Character> anonymusWord = new ArrayList<Character>();
+
+
+    private static ArrayList<Character> ArrayWord = new ArrayList<Character>();
+    private static ArrayList<Character> ArrayReturnWord = new ArrayList<Character>();
+
+    private static String discoveriesLetters="";
 
     private static int chances =7;
 
@@ -29,6 +37,8 @@ public class Pendu
         nb = nombre.nextInt(max );
         theWord = dictionnaryWords[nb];
 
+        System.out.println(theWord);
+
         return theWord;
     }
 
@@ -41,7 +51,7 @@ public class Pendu
         char[] letter = new char[theWord.length()];
         String stars = " ";
 
-        ArrayList<Character> ArrayWord = new ArrayList<Character>();
+//        ArrayList<Character> ArrayWord = new ArrayList<Character>();
 
         for(int i =0; i< theWord.length(); i++)
         {
@@ -49,7 +59,7 @@ public class Pendu
             ArrayWord.add(letter[i]);
         }
 
-        ArrayList <Character> anonymusWord = new ArrayList<Character>();
+//        ArrayList <Character> anonymusWord = new ArrayList<Character>();
         char[] starLetter = new char[theWord.length()];
         for(int i =0; i < theWord.length(); i++)
         {
@@ -61,6 +71,8 @@ public class Pendu
         {
             stars += star+"";
         }
+
+        System.out.println("Le mot mystère est : " + stars);
         return stars;
     }
 
@@ -71,13 +83,8 @@ public class Pendu
         System.out.println("Entrez une lettre pour tenter de trouver le mot mystère");
         Scanner userinp = new Scanner(System.in);
         char attempt = userinp.next().charAt(0);
-        return attempt;
-
+        return attemptletter = attempt;
     }
-
-
-
-
 
 
 }
