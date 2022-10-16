@@ -5,20 +5,19 @@ import java.util.Scanner;
 public class Pendu
 {
 
-    private String dictionnaryWords[] = {"java", "Python", "javascript", "cobol", "pearl", "c++","crêpes", "kouign amann"};
+    private String dictionnaryWords[] = {"java", "Python", "javascript", "cobol", "pearl", "c++","crêpes", "kouign-amann"};
     private static String theWord;
 
     private static char attemptletter;
 
     public static ArrayList <Character> anonymusWord = new ArrayList<Character>();
 
-
     private static ArrayList<Character> ArrayWord = new ArrayList<Character>();
     private static ArrayList<Character> ArrayReturnWord = new ArrayList<Character>();
 
     private static String discoveriesLetters="";
 
-    private static int chances =7;
+    private final int chances =7;
 
     public Pendu()
     {
@@ -30,7 +29,7 @@ public class Pendu
     {
         // générator for create one word from dictionnaryWords
 
-        int min=0;
+        //int min=0;
         int max=dictionnaryWords.length;
         Random nombre = new Random();
         int nb;
@@ -51,15 +50,12 @@ public class Pendu
         char[] letter = new char[theWord.length()];
         String stars = " ";
 
-//        ArrayList<Character> ArrayWord = new ArrayList<Character>();
-
         for(int i =0; i< theWord.length(); i++)
         {
             letter[i] = theWord.charAt(i);
             ArrayWord.add(letter[i]);
         }
 
-//        ArrayList <Character> anonymusWord = new ArrayList<Character>();
         char[] starLetter = new char[theWord.length()];
         for(int i =0; i < theWord.length(); i++)
         {
@@ -84,6 +80,20 @@ public class Pendu
         Scanner userinp = new Scanner(System.in);
         char attempt = userinp.next().charAt(0);
         return attemptletter = attempt;
+    }
+
+
+    public void verification()
+    {
+        for(int i =0; i < ArrayWord.size(); i++)
+        {
+            if(attemptletter == ArrayWord.get(i)){
+                anonymusWord.set(i, attemptletter);
+            }
+
+        }
+        String discoveryLetters = anonymusWord.toString().replace(",","");
+        System.out.println(discoveryLetters);
     }
 
 
