@@ -63,7 +63,6 @@ public class Pendu {
         int max = 9; // Max chances
         int chances=0;
 
-        int reste = max - chances;
 
         while ( chances < max){
 
@@ -73,27 +72,39 @@ public class Pendu {
             char attempt = userinp.next().charAt(0);
             attemptletter = attempt;
 
+            int goodLetters=0; // count if one or many letters are find
             for (int i = 0; i < ArrayWord.size(); i++) {
                 if (attemptletter == ArrayWord.get(i)) {
                     anonymusWord.set(i, attemptletter);
+                    goodLetters++;
                 }
-
             }
+
+            if (goodLetters==0){chances++;}
+
 
             discoveryLetters = anonymusWord.toString().replace(",", "");
 
             if (anonymusWord.equals(ArrayWord)) {
+                System.out.println("_____________________________");
                 System.out.println("Félicitation le mot était " + discoveryLetters);
+                System.out.println("_____________________________");
+
                 break;
             }
 
             System.out.println(discoveryLetters);
+            int reste = max - chances;
             System.out.println("Il vous reste encore " + reste + " chances");
+
+            if (chances==max){
+                System.out.println("_____________________________");
+                System.out.println("Pas de chance, tu n'as pas trouvé le mot magique qui était : " + theWord);
+                System.out.println("_____________________________");
+            }
+
         }
 
     }
 
-
-
 }
-
