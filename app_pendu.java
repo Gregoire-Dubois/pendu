@@ -67,17 +67,3 @@ public class app_pendu {
     }
 
 }
-
-/*
- * 3) instancier un nombre de chance max
- * 5) tant que l'utilisateur a des chances il peut recommancer
- * 6) si la lettre est bonne découvrir la lettre validée
- * 7) si la lettre est mauvaise décompter une chance
- * 8) si les chances sont épuisées alors terminer le jeu
- * 
- * public static String repettte(String starsword){
- * System.out.println("Le mot magique est ------------->" + starsword);
- * return starsword;
- * }
- 
- */
