@@ -57,13 +57,6 @@ public class app_pendu {
 
         // Créer le démascage des caractères ex : **e***
         ArrayList<Character> arrayUnStarsWord = new ArrayList<Character>();
-
-
-        // vérifier si la saisie utilsateur comprend une correspondace ou plusieurs avec le mot magique
-
-
-
-
     }
 
 }
